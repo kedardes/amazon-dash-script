@@ -1,0 +1,110 @@
+1. Install Homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+2. Install Phython and check version
+brew install python
+python -V
+(2.7.11)
+
+3. Install PIP
+sudo pip install --upgrade pip
+pip -V
+(8.1.0)
+
+4. 
+
+Kedars-MacBook-Pro:~ kedardeshpande$ pip install scapy
+Collecting scapy
+  Downloading scapy-2.3.2.tar.gz (1.1MB)
+    100% |████████████████████████████████| 1.1MB 937kB/s 
+Building wheels for collected packages: scapy
+  Running setup.py bdist_wheel for scapy ... done
+  Stored in directory: /Users/kedardeshpande/Library/Caches/pip/wheels/f7/82/ba/1c813253859528eb8c33f80c615b4998375a79932cd7e0ed94
+Successfully built scapy
+Installing collected packages: scapy
+Successfully installed scapy-2.3.2
+
+5. ImportError: No module named pcapy
+Kedars-MacBook-Pro:Desktop kedardeshpande$ sudo pip install pcapy
+Password:
+The directory '/Users/kedardeshpande/Library/Caches/pip/http' or its parent directory is not owned by the current user and the cache has been disabled. Please check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+The directory '/Users/kedardeshpande/Library/Caches/pip' or its parent directory is not owned by the current user and caching wheels has been disabled. check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Collecting pcapy
+  Downloading pcapy-0.10.10.tgz (93kB)
+    100% |████████████████████████████████| 102kB 2.5MB/s 
+Installing collected packages: pcapy
+  Running setup.py install for pcapy ... done
+Successfully installed pcapy-0.10.10
+
+6. ImportError: No module named dnet
+Moving on for now...
+
+7. Install lxml
+pip install lxml
+Collecting lxml
+  Downloading lxml-3.5.0.tar.gz (3.8MB)
+    100% |████████████████████████████████| 3.8MB 302kB/s 
+Building wheels for collected packages: lxml
+  Running setup.py bdist_wheel for lxml ... done
+  Stored in directory: /Users/kedardeshpande/Library/Caches/pip/wheels/2d/f6/d6/158b79cc088e551305968e312953c9767855a36f39d4e16054
+Successfully built lxml
+Installing collected packages: lxml
+Successfully installed lxml-3.5.0
+
+8. brew install openssl
+Warning: openssl-1.0.2g already installed
+(oooh, watch out)
+
+9. ImportError: No module named dnet
+- install wget
+- brew install wget
+$ wget http://libdnet.googlecode.com/files/libdnet-1.12.tgz
+$ tar xfz libdnet-1.12.tgz
+$ ./configure
+$ make
+$ sudo make install
+$ cd python
+$ python2.5 setup.py install
+
+10. I think that worked
+
+11. pcapy.PcapError: en0: You don't have permission to capture on that device ((cannot open BPF device) /dev/bpf0: Permission denied)
+- sudo python dash.py
+
+12. WARNING: fileno: pcapy API does not permit to get capure file descriptor. Bugs ahead! Press Enter to trigger packet reading
+- ADD
+    import logging
+    logging.getLogger("scapy.runtime").setLevel(logging.ERROR)
+
+13. Tracking but giving error
+AttributeError: 'NoneType' object has no attribute 'getts'
+
+14. Moving on
+- sudo python dash.py
+ARP Probe from: 10:ae:60:96:da:68
+Traceback (most recent call last):
+  File "dash.py", line 11, in <module>
+    print sniff(prn=arp_display, filter="arp", store=0, count=10)
+  File "/usr/local/lib/python2.7/site-packages/scapy/sendrecv.py", line 586, in sniff
+    p = s.recv(MTU)
+  File "/usr/local/lib/python2.7/site-packages/scapy/arch/pcapdnet.py", line 145, in recv
+    pkt = self.ins.next()
+  File "/usr/local/lib/python2.7/site-packages/scapy/arch/pcapdnet.py", line 92, in next
+    s,us = h.getts()
+AttributeError: 'NoneType' object has no attribute 'getts'
+
+15. ARP Probe from: 10:ae:60:96:da:68
+
+
+
+
+
+
+
+
+
+
+
+
+
+
